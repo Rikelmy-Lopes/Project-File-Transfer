@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<style>
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    li {
+      width: fit-content;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .folder-icon {
+      width: 25px;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      font-weight: 700;
+    }
+
+  </style>
+<body>
+    <h1>Arquivos do PC</h1>
+    <button id="backwards"> backwards </button>
+    <button id="forward"> forward </button>
+    <h2 id="current-directory" >Diretorio: </h2>
+    <ul id="file-list">
+    </ul>
+  </body>
+  <script src="/home.js"></script>
+</html>

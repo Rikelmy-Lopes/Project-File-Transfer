@@ -3,12 +3,18 @@ const express = require('express');
 const path = require('path');
 const os = require('os');
 const { readDirectory } = require('./Utils/directoryHandle');
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors({
+  origin: '*'
+}));
 
 app.use(express.static(os.homedir()));
 app.use(express.static(path.join(__dirname, 'Page')));
 app.use(express.static(path.join(__dirname, 'Images')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 
 
@@ -36,11 +42,11 @@ app.get('/files-list', async (_req, res) => {
 });
 
 app.get('/:caminho', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Page', 'home.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Page', 'home.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.get('/download/:caminho', (req, res) => {

@@ -1,0 +1,4 @@
+electron
+scripts
+vite.config.electron.ts
+vite.config.backend.ts

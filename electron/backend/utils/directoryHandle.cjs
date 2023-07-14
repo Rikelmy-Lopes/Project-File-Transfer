@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { parseEntriesList } = require('./entriesListHandle');
+const { parseEntriesList } = require('./entriesListHandle.cjs');
 
 const readDirectory = async (path) => {
   return new Promise((resolve, reject) => {

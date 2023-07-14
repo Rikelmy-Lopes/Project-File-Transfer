@@ -1,23 +1,41 @@
 {
-  "name": "file-transfer-wifi",
-  "version": "1.0.0",
-  "description": "",
+  "name": "electron-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "homepage": "./",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "cd frontend && npm install && cd .. && cd electron && npm install",
-    "electron": "cd electron && npm start",
-    "build-frontend": "cd frontend && npm run build",
-    "watch-build-frontend": "cd frontend && npm run watch"
+    "electron:build": "npm run vite:build && electron-builder",
+    "vite:build": "tsc && vite build",
+    "preview": "vite preview",
+    "electron:dev": "cross-env NODE_ENV=development electron .",
+    "vite:dev": "vite",
+    "dev": "cross-env NODE_ENV=development node scripts/dev.js",
+    "watch": "watch 'npm run vite:build' ./src"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Rikelmy-Lopes/Project-File-Transfer.git"
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "ip": "^1.1.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "watch": "^1.0.2"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Rikelmy-Lopes/Project-File-Transfer/issues"
-  },
-  "homepage": "https://github.com/Rikelmy-Lopes/Project-File-Transfer#readme"
+  "devDependencies": {
+    "@types/ip": "^1.1.0",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "@vitejs/plugin-react": "^4.0.1",
+    "cross-env": "^7.0.3",
+    "electron": "^25.3.0",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.0"
+  }
 }

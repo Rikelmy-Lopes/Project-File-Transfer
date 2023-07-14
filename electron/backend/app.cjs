@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const os = require('os');
-const { readDirectory } = require('./Utils/directoryHandle');
+const { readDirectory } = require('./utils/directoryHandle.cjs');
 const cors = require('cors');
 
 const app = express();
@@ -12,10 +12,7 @@ app.use(cors({
 }));
 
 app.use(express.static(os.homedir()));
-app.use(express.static(path.join(__dirname, 'Page')));
-app.use(express.static(path.join(__dirname, 'Images')));
-app.use(express.static(path.join(__dirname, 'dist')));
-
+app.use(express.static(path.join(__dirname, '../app')));
 
 
 //pega os arquivos por diretorio
@@ -42,11 +39,11 @@ app.get('/files-list', async (_req, res) => {
 });
 
 app.get('/:caminho', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, '../app/index.html'));
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, '../app/index.html'));
 });
 
 app.get('/download/:caminho', (req, res) => {

@@ -1,4 +1,4 @@
-const app = require('./app.js');
+const app = require('./app.cjs');
 const ip =  require('ip');
 const PORT = 3000;
 let server = null;

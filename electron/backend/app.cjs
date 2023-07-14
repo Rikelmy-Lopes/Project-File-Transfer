@@ -12,7 +12,7 @@ app.use(cors({
 }));
 
 app.use(express.static(os.homedir()));
-app.use(express.static(path.join(__dirname, '../app')));
+app.use(express.static(path.join(__dirname, '../app-backend')));
 
 
 //pega os arquivos por diretorio
@@ -39,12 +39,14 @@ app.get('/files-list', async (_req, res) => {
 });
 
 app.get('/:caminho', (req, res) => {
-  res.sendFile(path.join(__dirname, '../app/index.html'));
+  res.sendFile(path.join(__dirname, '../app-backend/index.html'));
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../app/index.html'));
+  res.sendFile(path.join(__dirname, '../app-backend/index.html'));
 });
+
+
 
 app.get('/download/:caminho', (req, res) => {
   const { caminho } = req.params;

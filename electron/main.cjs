@@ -26,7 +26,7 @@ async function createWindow () {
     win.loadURL('http://localhost:5173');
     win.webContents.openDevTools();
   } else {
-    win.loadFile(join(__dirname, './app/index.html'));
+    win.loadFile(join(__dirname, './app-electron/index.html'));
   }
 }
 

@@ -1,3 +1,4 @@
 electron
 scripts
-vite.config.ts
+vite.config.electron.ts
+vite.config.backend.ts

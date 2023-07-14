@@ -8,8 +8,7 @@
   "scripts": {
     "electron:build": "npm run vite:build && electron-builder",
     "vite:build": "tsc && vite build",
-    "preview": "vite preview",
-    "electron:dev": "cross-env NODE_ENV=development electron .",
+    "electron:preview": "npm run vite:build && electron .",
     "vite:dev": "vite",
     "dev": "cross-env NODE_ENV=development node scripts/dev.js",
     "watch": "watch 'npm run vite:build' ./src"
@@ -24,7 +23,6 @@
     "watch": "^1.0.2"
   },
   "devDependencies": {
-    "@types/ip": "^1.1.0",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
@@ -32,6 +30,7 @@
     "@vitejs/plugin-react": "^4.0.1",
     "cross-env": "^7.0.3",
     "electron": "^25.3.0",
+    "electron-builder": "^24.4.0",
     "eslint": "^8.44.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",

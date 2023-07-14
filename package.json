@@ -10,7 +10,6 @@
     "vite:electron:build": "tsc && vite build --config vite.config.electron.ts ",
     "vite:backend:build": "tsc && vite build --config vite.config.backend.ts",
     "electron:preview": "npm run vite:electron:build && npm run vite:backend:build && electron .",
-    "vite:dev": "vite",
     "dev": "cross-env NODE_ENV=development node scripts/dev.js",
     "watch": "cross-env NODE_ENV=development watch 'npm run vite:backend:build' ./src"
   },

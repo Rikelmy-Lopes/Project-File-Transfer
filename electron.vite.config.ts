@@ -4,8 +4,9 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: process.env.NODE_ENV === 'development' ? '/' : './',
+  root: 'src/renderer',
   build: {
-    outDir: 'electron/app-backend'
+    outDir: '../../out/renderer',
   }
 })

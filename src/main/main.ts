@@ -1,6 +1,6 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
-const { join } = require('path')
-const serverHandler = require('./backend/server.cjs')
+import  { app, BrowserWindow, ipcMain } from 'electron';
+import { join } from 'path';
+import serverHandler from '../backend/server'
 
 if (!app.requestSingleInstanceLock()) {
   app.quit()
@@ -9,7 +9,7 @@ if (!app.requestSingleInstanceLock()) {
 
 const isDev = process.env.NODE_ENV === 'development';
 
-let win = null
+let win : BrowserWindow | null = null;;
 
 async function createWindow () {
   win = new BrowserWindow({
@@ -17,7 +17,7 @@ async function createWindow () {
     width: 1024,
     height: 768,
     webPreferences: {
-      preload: join(__dirname, './preload.cjs'),
+      preload: join(__dirname, '../preload/preload.js'),
       nodeIntegration: true,
     }
   })
@@ -26,7 +26,8 @@ async function createWindow () {
     win.loadURL('http://localhost:5173');
     win.webContents.openDevTools();
   } else {
-    win.loadFile(join(__dirname, './app-electron/index.html'));
+    win.loadFile(join(__dirname, '../renderer/index.html'));
+    win.webContents.openDevTools();
   }
 }
 

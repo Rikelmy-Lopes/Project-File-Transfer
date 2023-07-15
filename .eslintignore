@@ -1,4 +1,7 @@
-electron
+out
 scripts
 vite.config.electron.ts
 vite.config.backend.ts
+src/main
+src/preload
+src/backend

@@ -2,14 +2,15 @@
   "name": "electron-vite",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
-  "main": "electron/main.cjs",
+  "type": "commonjs",
+  "main": "out/main/main.js",
   "homepage": "./",
   "scripts": {
-    "electron:build": "npm run vite:electron:build && npm run vite:backend:build && electron-builder",
-    "vite:electron:build": "tsc && vite build --config vite.config.electron.ts ",
-    "vite:backend:build": "tsc && vite build --config vite.config.backend.ts",
-    "electron:preview": "npm run vite:electron:build && npm run vite:backend:build && electron .",
+    "electron:build": "npm run vite:electron:build && npm run vite:app:build && electron-builder",
+    "vite:electron:build": "tsc && vite build --config electron.vite.config.ts ",
+    "vite:app:build": "tsc && vite build --config app.vite.config.ts",
+    "electron:preview": "node scripts/build && electron .",
+    "electron:js": "tsc --project tsconfig.electron.json",
     "dev": "cross-env NODE_ENV=development node scripts/dev.js",
     "watch": "cross-env NODE_ENV=development watch 'npm run vite:backend:build' ./src"
   },
@@ -23,6 +24,10 @@
     "watch": "^1.0.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/electron": "^1.6.10",
+    "@types/express": "^4.17.17",
+    "@types/ip": "^1.1.0",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.61.0",

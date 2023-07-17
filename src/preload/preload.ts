@@ -1,6 +1,6 @@
-const { contextBridge, shell } = require('electron');
-const electron = require('electron');
-const ip = require('ip');
+import { contextBridge, shell } from 'electron';
+import electron from 'electron';
+import ip from 'ip';
 
 
 contextBridge.exposeInMainWorld('ipcRenderer', electron.ipcRenderer);

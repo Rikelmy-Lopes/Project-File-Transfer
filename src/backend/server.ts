@@ -1,9 +1,11 @@
-const app = require('./app.cjs');
-const ip =  require('ip');
+import { IpcMain } from 'electron';
+import app from './app';
+import ip from 'ip';
 const PORT = 3000;
-let server = null;
+import { Server } from 'http'
+let server: Server | null = null;
 
-function serverHandler(ipcMain) {
+function serverHandler(ipcMain: IpcMain) {
   ipcMain.on('start-server', () => {
     if (!server) {
       server = app.listen(PORT, ip.address(), () => {
@@ -29,4 +31,4 @@ function serverHandler(ipcMain) {
   });
 }
 
-module.exports = serverHandler;
+export default serverHandler;

@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import Entry from "../Components/Entry";
 import axios from "axios";
 import { IEntry } from "../Interfaces/Interfaces";
-import arrowLeft from '../public/images/arrow-left.png'
-import arrowRight from '../public/images/arrow-right.png'
+import arrowLeft from '/images/arrow-left.png'
+import arrowRight from '/images/arrow-right.png'
 
 const Home = () => {
   const [ entries, setEntries ] = useState<IEntry[]>([]);
@@ -26,7 +26,7 @@ const Home = () => {
   return (
     <>
       <h2>
-            Diretório Atual: { decodeURIComponent(location.pathname) }?
+            Diretório Atua: { decodeURIComponent(location.pathname) }?
       </h2>
       <button className="arrow-button" 
         onClick={() => location.pathname !== '/' ? window.history.back() : null } >

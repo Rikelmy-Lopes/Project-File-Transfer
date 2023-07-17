@@ -1,7 +1,12 @@
-const fs = require('fs');
-const { parseEntriesList } = require('./entriesListHandle.cjs');
+import fs from 'fs';
+import { parseEntriesList } from './entriesListHandle';
 
-const readDirectory = async (path) => {
+export interface IEntries {
+  name: string,
+  isDirectory: boolean,
+}
+
+const readDirectory = async (path: string): Promise<IEntries[]> => {
   return new Promise((resolve, reject) => {
     fs.readdir(path, { withFileTypes: true },  (err, entries) => {
       if (err) {
@@ -13,4 +18,4 @@ const readDirectory = async (path) => {
   });
 };
 
-module.exports =  { readDirectory };
+export { readDirectory };

@@ -1,6 +1,6 @@
 import { IEntry } from "../Interfaces/Interfaces"
-import imageFolder from '../public/images/folder.png'
-import imageFile from '../public/images/file.png'
+import imageFolder from '/images/folder.png'
+import imageFile from '/images/file.png'
 
 const Entry = ({ entry }: { entry: IEntry }) => {
 

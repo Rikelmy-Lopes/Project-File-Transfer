@@ -6,16 +6,19 @@ directories:
 files:
   - out
 
-mac:
-  artifactName: "${productName}_${version}.${ext}"
-  target:
-    - dmg
 win:
   target:
     - target: nsis
       arch:
         - x64
   artifactName: "${productName}_${version}.${ext}"
+
+linux:
+  target:
+    - deb
+    - AppImage
+    # - snap
+  category: Utility
 nsis:
   oneClick: false
   perMachine: false

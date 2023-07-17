@@ -1,11 +1,16 @@
-import { spawn } from 'child_process'
-import { createServer } from 'vite'
-import electron from 'electron'
+const { spawn } = require('child_process')
+const { createServer } =  require('vite')
+const electron = require('electron');
 
-const server = await createServer({ configFile: 'vite.config.electron.ts' });
+createServer({ configFile: 'electron.vite.config.ts' })
+    .then((server) => server.listen());
 
-await server.listen();
+spawn('npm', ['run', 'watch'], { stdio: 'inherit' });
 
-spawn('npm', ['run', 'watch'], { stdio: 'inherit' }).once('exit', process.exit);
+spawn('npm', ['run', 'transpile:electron'], { stdio: 'inherit' }).once('close', () => {
+    spawn(electron, ['.'], { stdio: 'inherit' });
+})
 
-spawn(electron, ['.'], { stdio: 'inherit' }).once('exit', process.exit);
+
+
+

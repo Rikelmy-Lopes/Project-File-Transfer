@@ -4,7 +4,7 @@ import serverHandler from '../backend/server'
 
 if (!app.requestSingleInstanceLock()) {
   app.quit()
-  process.exit(0)
+  process.exit(1)
 }
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -27,7 +27,6 @@ async function createWindow () {
     win.webContents.openDevTools();
   } else {
     win.loadFile(join(__dirname, '../renderer/index.html'));
-    win.webContents.openDevTools();
   }
 }
 

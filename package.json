@@ -1,18 +1,21 @@
 {
-  "name": "electron-vite",
+  "name": "file-transfer",
   "private": true,
-  "version": "0.0.0",
-  "type": "commonjs",
+  "version": "0.1.0",
   "main": "out/main/main.js",
+  "author": {
+    "name": "Rikelmy Lopes",
+    "email": "rikelmylopes899@gmail.com"
+  },
   "homepage": "./",
   "scripts": {
-    "electron:build": "npm run vite:electron:build && npm run vite:app:build && electron-builder",
-    "vite:electron:build": "tsc && vite build --config electron.vite.config.ts ",
-    "vite:app:build": "tsc && vite build --config app.vite.config.ts",
-    "electron:preview": "node scripts/build && electron .",
-    "electron:js": "tsc --project tsconfig.electron.json",
+    "build": "node scripts/build.js && electron-builder",
+    "build:renderer": "tsc && vite build --config electron.vite.config.ts ",
+    "build:vite:app": "tsc && vite build --config app.vite.config.ts",
+    "preview:electron": "node scripts/build && electron .",
+    "transpile:electron": "tsc --project tsconfig.electron.json",
     "dev": "cross-env NODE_ENV=development node scripts/dev.js",
-    "watch": "cross-env NODE_ENV=development watch 'npm run vite:backend:build' ./src"
+    "watch": "watch 'tsc && vite build --config app.vite.config.ts' ./src/renderer"
   },
   "dependencies": {
     "axios": "^1.4.0",
@@ -20,8 +23,7 @@
     "express": "^4.18.2",
     "ip": "^1.1.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "watch": "^1.0.2"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
@@ -40,6 +42,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
     "typescript": "^5.0.2",
-    "vite": "^4.4.0"
+    "vite": "^4.4.0",
+    "watch": "^1.0.2"
   }
 }

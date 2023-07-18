@@ -62,7 +62,7 @@ npm run preview:electron
 - [ ] Definir Porta do Servidor
 - [ ] Definir Senha do Servidor
 - [ ] Upload de Arquivos
-- [ ] Melhoria de Interfaçe e Responsividade
+- [ ] Melhoria de Interface e Responsividade
   
   
 <h2>💻 Feito com</h2>

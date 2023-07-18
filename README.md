@@ -2,6 +2,13 @@
 
 <p id="description">Programa feito com ElectronJs + Reactjs + Expressjs para transferencia de Arquivos entre dispositivos conectados na mesma rede Wi-fi!</p>
 
+<h2>Requisitos:</h2>
+<ul>
+  
+  <li> Versão do Node >= 16 </li>
+
+</ul>
+
 <h2>🛠️ Para Instalar:</h2>
 
 <p>1. Clone este repositório para o seu diretório local usando o seguinte comando:</p>

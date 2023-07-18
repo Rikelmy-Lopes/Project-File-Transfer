@@ -9,13 +9,12 @@ Para usar o File Transfer, basta instalar o programa no dispositivo que vai tran
 ![Badge](https://img.shields.io/badge/build-alpha-red)
 ![Badge](https://img.shields.io/github/license/Rikelmy-Lopes/Project-File-Transfer.svg)
 
-<h2>Requisitos:</h2>
-<ul>
-  
-  <li> Versão do Node >= 16 </li>
+<h2> Pré-requisitos </h2>
 
-</ul>
+<p>Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: </p>
 
+-   **[Nodejs](https://nodejs.org/en/)** >= 16
+-   **[Git](https://git-scm.com)**
 
 
 <h2>🛠️ Para Instalar:</h2>
@@ -69,12 +68,12 @@ npm run preview:electron
 
 Tecnologias utilizadas no Projeto:
 
-*   Javascript
-*   Typescript
-*   Electron
-*   Express
-*   Vite
-*   Reactjs
+- **[Javascript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)**
+- **[Typescript](https://www.typescriptlang.org/)**
+- **[Electron](https://www.electronjs.org/)**
+- **[Express](https://expressjs.com/)**
+- **[Vite](https://vitejs.dev/)**
+- **[Reactjs](https://react.dev/)**
 
 <h2>🛡️ Licença:</h2>
 

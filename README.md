@@ -4,6 +4,11 @@
 
 Para usar o File Transfer, basta instalar o programa no dispositivo que vai transferir os arquivos. Em seguida, abra um navegador da web no dispositivo de destino e digite o endereço IP do dispositivo de origem na barra de endereços. Você pode então selecionar os arquivos que deseja transferir. Os arquivos serão transferidos automaticamente para o dispositivo de destino. </p>
 
+<h2>Badges</h2>
+
+![Badge](https://img.shields.io/badge/build-alpha-red)
+![Badge](https://img.shields.io/github/license/Rikelmy-Lopes/Project-File-Transfer.svg)
+
 <h2>Requisitos:</h2>
 <ul>
   
@@ -11,10 +16,6 @@ Para usar o File Transfer, basta instalar o programa no dispositivo que vai tran
 
 </ul>
 
-<h2>Badges</h2>
-
-![Badge](https://img.shields.io/badge/build-alpha-red)
-![Badge](https://img.shields.io/github/license/Rikelmy-Lopes/Project-File-Transfer.svg)
 
 
 <h2>🛠️ Para Instalar:</h2>
@@ -55,6 +56,13 @@ npm run build
 npm run preview:electron
 ```
 
+<h2> Features </h2>
+
+- [x] Transferencia de Arquivos
+- [ ] Definir Porta do Servidor
+- [ ] Definir Senha do Servidor
+- [ ] Upload de Arquivos
+- [ ] Melhoria de Interfaçe e Responsividade
   
   
 <h2>💻 Feito com</h2>

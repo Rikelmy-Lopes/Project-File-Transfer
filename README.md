@@ -11,6 +11,9 @@ Para usar o File Transfer, basta instalar o programa no dispositivo que vai tran
 
 </ul>
 
+<img alt="Static Badge" src="https://img.shields.io/badge/build-alpha-red">
+
+
 <h2>🛠️ Para Instalar:</h2>
 
 <p>1. Clone este repositório para o seu diretório local usando o seguinte comando:</p>

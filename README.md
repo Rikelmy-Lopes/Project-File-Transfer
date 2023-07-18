@@ -1,6 +1,8 @@
-<h1 align="center" id="title">File Transfer by Wi-Fi</h1>
+<h1 align="center" id="title">File Transfer</h1>
 
-<p id="description">Programa feito com ElectronJs + Reactjs + Expressjs para transferencia de Arquivos entre dispositivos conectados na mesma rede Wi-fi!</p>
+<p id="description"> File Transfer é um programa gratuito e de código aberto feito com ElectronJS, ReactJS e ExpressJS que permite transferir arquivos entre dispositivos conectados na mesma rede Wi-Fi. É uma maneira fácil e conveniente de compartilhar arquivos entre computadores, laptops, smartphones e tablets.
+
+Para usar o File Transfer, basta instalar o programa no dispositivo que vai transferir os arquivos. Em seguida, abra um navegador da web no dispositivo de destino e digite o endereço IP do dispositivo de origem na barra de endereços. Você pode então selecionar os arquivos que deseja transferir. Os arquivos serão transferidos automaticamente para o dispositivo de destino. </p>
 
 <h2>Requisitos:</h2>
 <ul>

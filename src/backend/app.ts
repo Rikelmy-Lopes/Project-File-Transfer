@@ -3,14 +3,8 @@ import express from 'express';
 import path from 'path';
 import os from 'os';
 import { readDirectory } from './utils/directoryHandle';
-import cors from 'cors';
 
 const app = express()
-
-
-app.use(cors({
-  origin: '*'
-}));
 
 app.use(express.static(os.homedir()));
 app.use(express.static(path.join(__dirname, '../app')));

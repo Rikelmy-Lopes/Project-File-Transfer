@@ -58,7 +58,7 @@ npm run preview:electron
 <h2> Features </h2>
 
 - [x] Transferencia de Arquivos
-- [ ] Definir Porta do Servidor
+- [x] Definir Porta do Servidor
 - [ ] Definir Senha do Servidor
 - [ ] Upload de Arquivos
 - [ ] Melhoria de Interface e Responsividade

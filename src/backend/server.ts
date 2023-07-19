@@ -1,15 +1,14 @@
 import { IpcMain } from 'electron';
 import app from './app';
 import ip from 'ip';
-const PORT = 3000;
 import { Server } from 'http'
 let server: Server | null = null;
 
 function serverHandler(ipcMain: IpcMain) {
-  ipcMain.on('start-server', () => {
+  ipcMain.on('start-server', (_, port: number) => {
     if (!server) {
-      server = app.listen(PORT, ip.address(), () => {
-        console.log(`Servidor iniciado em http://${ip.address()}:${PORT}/`);
+      server = app.listen(port, ip.address(), () => {
+        console.log(`Servidor iniciado em http://${ip.address()}:${port}`);
       });
     }
   

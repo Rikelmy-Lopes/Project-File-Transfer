@@ -1,15 +1,16 @@
-import { IEntry } from "../Interfaces/Interfaces"
-import imageFolder from '/images/folder.png'
-import imageFile from '/images/file.png'
+import React, { PropsWithChildren } from 'react';
+import { IEntry } from '../Interfaces/Interfaces';
+import imageFolder from '/images/folder.png';
+import imageFile from '/images/file.png';
 
-const Entry = ({ entry }: { entry: IEntry }) => {
-
-  const handleHref = () => {
+const Entry = ({ entry }: { entry: IEntry }): JSX.Element => {
+  
+  const handleHref = (): string => {
     if (entry.isDirectory) {
-      return `/${encodeURIComponent(entry.name)}`
+      return `/${encodeURIComponent(entry.name)}`;
     }
-    return `/download/${encodeURIComponent(entry.name)}`
-  }
+    return `/download/${encodeURIComponent(entry.name)}`;
+  };
 
   return (
     <li>
@@ -24,7 +25,7 @@ const Entry = ({ entry }: { entry: IEntry }) => {
         { entry.name.split('/').pop() }
       </a>
     </li>
-  )
-}
+  );
+};
 
 export default Entry;

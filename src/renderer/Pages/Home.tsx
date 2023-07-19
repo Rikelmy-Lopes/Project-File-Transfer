@@ -1,27 +1,27 @@
+import React, { useEffect, useState } from 'react';
+import Entry from '../Components/Entry';
+import axios from 'axios';
+import { IEntry } from '../Interfaces/Interfaces';
+import arrowLeft from '/images/arrow-left.png';
+import arrowRight from '/images/arrow-right.png';
+import './Home.css';
 
-import { useEffect, useState } from "react";
-import Entry from "../Components/Entry";
-import axios from "axios";
-import { IEntry } from "../Interfaces/Interfaces";
-import arrowLeft from '/images/arrow-left.png'
-import arrowRight from '/images/arrow-right.png'
-
-const Home = () => {
-  const [ entries, setEntries ] = useState<IEntry[]>([]);
+const Home = (): JSX.Element => {
+  const [entries, setEntries] = useState<IEntry[]>([]);
 
   const getEntriesList = async (): Promise<void> => {
     const path = location.pathname;
     try {
       const { data } = await axios.get<IEntry[]>(`/files-list${path}`);
-      setEntries(data)
+      setEntries(data);
     } catch(error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    void getEntriesList();
-  }, [])
+    getEntriesList();
+  }, []);
     
   return (
     <>
@@ -41,7 +41,7 @@ const Home = () => {
         }
       </ul>
     </>
-  )
-}
+  );
+};
 
 export default Home;

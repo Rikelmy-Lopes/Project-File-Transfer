@@ -1,35 +1,5 @@
-ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow-y: auto;
-    height: 450px;
-  }
-
-  li {
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .entry-icon {
-    width: 25px;
-  }
-  a {
-    text-decoration: none;
-    color: black;
-    font-weight: 700;
-  }
-
-  .arrow-button {
-    border: none;
-    background-color: white;
-    padding: 0px 20px;
-  }
-
-  .arrow-button > img {
-    width: 45px;
-  }
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

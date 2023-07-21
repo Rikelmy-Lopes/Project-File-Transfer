@@ -9,7 +9,7 @@ if (!app.requestSingleInstanceLock()) {
 
 const isDev = process.env.NODE_ENV === 'development';
 
-let win : BrowserWindow | null = null;;
+let win : BrowserWindow | null = null;
 
 async function createWindow () {
   win = new BrowserWindow({
@@ -26,6 +26,7 @@ async function createWindow () {
     win.loadURL('http://localhost:5173');
     win.webContents.openDevTools();
   } else {
+    win.removeMenu();
     win.loadFile(join(__dirname, '../renderer/index.html'));
   }
 }

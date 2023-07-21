@@ -1,5 +1,6 @@
-import fs from 'fs';
+import { readdir } from 'fs';
 import { parseEntriesList } from './entriesListHandle';
+import { homedir } from 'os'
 
 export interface IEntries {
   name: string,
@@ -8,7 +9,7 @@ export interface IEntries {
 
 const readDirectory = async (path: string): Promise<IEntries[]> => {
   return new Promise((resolve, reject) => {
-    fs.readdir(path, { withFileTypes: true },  (err, entries) => {
+    readdir(path, { withFileTypes: true },  (err, entries) => {
       if (err) {
         reject(new Error('Erro ao ler o Diretório'));
       } else {
@@ -18,4 +19,8 @@ const readDirectory = async (path: string): Promise<IEntries[]> => {
   });
 };
 
-export { readDirectory };
+const getUserHomedir = (): string => {
+  return homedir();
+}
+
+export { readDirectory, getUserHomedir };

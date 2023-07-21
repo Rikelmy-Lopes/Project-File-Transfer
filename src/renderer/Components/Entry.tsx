@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import { IEntry } from '../Interfaces/Interfaces';
 import imageFolder from '/images/folder.png';
 import imageFile from '/images/file.png';

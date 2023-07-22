@@ -46,8 +46,12 @@ app.get('/download/:caminho', (req, res) => {
   const { caminho } = req.params;
   const completePath = join(getUserHomedir(), caminho);
   res.download(completePath, completePath, { dotfiles: 'allow' }, (error) => {
-    if(error && error.message !== 'Request aborted') {
-      res.status(400).send('Error: ' + error.message);
+    if(error) {
+      if (res.headersSent) {
+        return;
+      } else {
+        res.status(400).send('Error: ' + error.message);
+      }
     }
   });
 });

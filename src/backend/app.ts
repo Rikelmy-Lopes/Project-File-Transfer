@@ -2,12 +2,18 @@
 import express from 'express';
 import { join } from 'path';
 import { readDirectory, getUserHomedir } from './utils/directoryHandle';
+import { userInfo } from 'os';
 
 const app = express()
 
 app.use(express.static(getUserHomedir()));
 app.use(express.static(join(__dirname, '../app')));
+app.use(express.json())
 
+
+app.get('/user', (_req, res) => {
+  res.status(200).json({ username: userInfo().username })
+});
 
 //pega os arquivos por diretorio
 app.get('/files-list/:caminho', async (req, res) => {
@@ -39,8 +45,6 @@ app.get('/:caminho', (_req, res) => {
 app.get('/', (_req, res) => {
   res.sendFile(join(__dirname, '../app/index.html'));
 });
-
-
 
 app.get('/download/:caminho', (req, res) => {
   const { caminho } = req.params;

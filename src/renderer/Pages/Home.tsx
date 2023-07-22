@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Entry from '../Components/Entry';
 import axios from 'axios';
-import { IEntry } from '../Interfaces/Interfaces';
+import { IEntry, IUser } from '../Interfaces/Interfaces';
 import arrowLeft from '/images/arrow-left.png';
 import arrowRight from '/images/arrow-right.png';
 import './Home.css';
 
 const Home = (): JSX.Element => {
   const [entries, setEntries] = useState<IEntry[]>([]);
+  const [user, setUser] = useState<IUser>();
 
   const getEntriesList = async (): Promise<void> => {
     const path = location.pathname;
@@ -19,9 +20,22 @@ const Home = (): JSX.Element => {
     }
   };
 
+  const getUserInfo = async (): Promise<void> => {
+    try {
+      const { data } = await axios.get<IUser>('/user');
+      setUser(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
+    getUserInfo();
     getEntriesList();
   }, []);
+
+  useEffect(() => {
+    document.title =  `PC: ${user?.username}`;
+  }, [user]);
     
   return (
     <>

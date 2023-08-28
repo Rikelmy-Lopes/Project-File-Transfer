@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 import express from 'express';
-import { join } from 'path';
-import { readDirectory, getUserHomedir } from './utils/directoryHandle';
 import { userInfo } from 'os';
+import { join } from 'path';
+import { getUserHomedir, readDirectory } from './utils/directoryHandle';
 
 const app = express()
 
 app.use(express.static(getUserHomedir()));
-app.use(express.static(join(__dirname, '../app')));
+app.use(express.static(join(__dirname, './app')));
 app.use(express.json())
 
 
@@ -39,11 +39,11 @@ app.get('/files-list', async (_req, res) => {
 });
 
 app.get('/:caminho', (_req, res) => {
-  res.sendFile(join(__dirname, '../app/index.html'));
+  res.sendFile(join(__dirname, './app/index.html'));
 });
 
 app.get('/', (_req, res) => {
-  res.sendFile(join(__dirname, '../app/index.html'));
+  res.sendFile(join(__dirname, './app/index.html'));
 });
 
 app.get('/download/:caminho', (req, res) => {

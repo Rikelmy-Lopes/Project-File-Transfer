@@ -15,7 +15,7 @@
     "preview:electron": "node scripts/build && electron .",
     "transpile:electron": "tsc --project tsconfig.electron.json",
     "dev": "cross-env NODE_ENV=development node scripts/dev.js",
-    "dev:vite": "vite --config electron.vite.config.ts",
+    "dev:vite": "vite --config backend.vite.config.ts",
     "watch": "watch 'vite build --config backend.vite.config.ts' ./src/renderer"
   },
   "dependencies": {

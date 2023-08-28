@@ -11,18 +11,16 @@
   "scripts": {
     "build": "node scripts/build.js && electron-builder",
     "build:renderer": "tsc && vite build --config electron.vite.config.ts ",
-    "build:vite:app": "tsc && vite build --config app.vite.config.ts",
+    "build:vite:backend": "tsc && vite build --config backend.vite.config.ts",
     "preview:electron": "node scripts/build && electron .",
     "transpile:electron": "tsc --project tsconfig.electron.json",
     "dev": "cross-env NODE_ENV=development node scripts/dev.js",
-    "watch": "watch 'tsc && vite build --config app.vite.config.ts' ./src/renderer"
+    "dev:vite": "vite --config electron.vite.config.ts",
+    "watch": "watch 'vite build --config backend.vite.config.ts' ./src/renderer"
   },
   "dependencies": {
-    "axios": "^1.4.0",
     "express": "^4.18.2",
-    "ip": "^1.1.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "ip": "^1.1.8"
   },
   "devDependencies": {
     "@types/electron": "^1.6.10",
@@ -32,7 +30,8 @@
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
-    "@vitejs/plugin-react": "^4.0.1",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "axios": "^1.5.0",
     "cross-env": "^7.0.3",
     "electron": "^25.3.0",
     "electron-builder": "^24.4.0",
@@ -40,6 +39,8 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.0",
     "watch": "^1.0.2"

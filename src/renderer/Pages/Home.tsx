@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Entry from '../Components/Entry';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
+import Entry from '../Components/Entry';
 import { IEntry, IUser } from '../Interfaces/Interfaces';
+import './Home.css';
 import arrowLeft from '/images/arrow-left.png';
 import arrowRight from '/images/arrow-right.png';
-import './Home.css';
 
 const Home = (): JSX.Element => {
   const [entries, setEntries] = useState<IEntry[]>([]);
@@ -34,13 +34,13 @@ const Home = (): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    document.title =  `PC: ${user?.username}`;
+    document.title =  `PC: ${user?.username || 'Loading...'}`;
   }, [user]);
     
   return (
     <>
       <h2>
-            Diretório Atua: { decodeURIComponent(location.pathname) }?
+            Diretório Atual: { decodeURIComponent(location.pathname) }?
       </h2>
       <button className="arrow-button" 
         onClick={() => location.pathname !== '/' ? window.history.back() : null } >

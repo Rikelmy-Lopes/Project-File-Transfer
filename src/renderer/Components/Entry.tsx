@@ -1,13 +1,12 @@
-import React from 'react';
 import { IEntry } from '../Interfaces/Interfaces';
-import imageFolder from '/images/folder.png';
 import imageFile from '/images/file.png';
+import imageFolder from '/images/folder.png';
 
 const Entry = ({ entry }: { entry: IEntry }): JSX.Element => {
   
   const handleHref = (): string => {
     if (entry.isDirectory) {
-      return `/${encodeURIComponent(entry.name)}`;
+      return `/?path=${encodeURIComponent(entry.name)}`;
     }
     return `/download/${encodeURIComponent(entry.name)}`;
   };

@@ -1,4 +1,4 @@
-import { Dirent } from 'fs'
+import { Dirent } from 'fs';
 import { IEntries } from './directoryHandle';
 
 const parseEntriesList = (entriesList: Dirent[]): IEntries[]  => {
@@ -7,4 +7,9 @@ const parseEntriesList = (entriesList: Dirent[]): IEntries[]  => {
   });
 };
 
-export { parseEntriesList };
+const prependPathToEntryNames = (entriesList: IEntries[], path: string): IEntries[] => {
+  return entriesList.map(entry => ({...entry, name: `${path}/${entry.name}`}));
+}; 
+
+export { parseEntriesList, prependPathToEntryNames };
+

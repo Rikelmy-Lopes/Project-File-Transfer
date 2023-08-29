@@ -18,18 +18,9 @@ ul {
   .entry-icon {
     width: 25px;
   }
+
   a {
     text-decoration: none;
     color: black;
     font-weight: 700;
-  }
-
-  .arrow-button {
-    border: none;
-    background-color: white;
-    padding: 0px 20px;
-  }
-
-  .arrow-button > img {
-    width: 45px;
   }

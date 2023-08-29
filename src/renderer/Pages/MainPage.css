@@ -1,0 +1,9 @@
+.arrow-button {
+    border: none;
+    background-color: white;
+    padding: 0px 20px;
+  }
+
+  .arrow-button > img {
+    width: 45px;
+  }

@@ -1,6 +1,6 @@
 import { readdir } from 'fs';
+import { homedir } from 'os';
 import { parseEntriesList } from './entriesListHandle';
-import { homedir } from 'os'
 
 export interface IEntries {
   name: string,
@@ -21,6 +21,6 @@ const readDirectory = async (path: string): Promise<IEntries[]> => {
 
 const getUserHomedir = (): string => {
   return homedir();
-}
+};
 
-export { readDirectory, getUserHomedir };
+export { getUserHomedir, readDirectory };

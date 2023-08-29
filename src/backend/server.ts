@@ -4,8 +4,9 @@ import ip from 'ip';
 import app from './app';
 let server: Server | null = null;
 
+
 function serverHandler(ipcMain: IpcMain) {
-  ipcMain.on('start-server', (_, port: number) => {
+  ipcMain.on('start-server', async (_, port: number) => {
     if (!server) {
       server = app.listen(port, ip.address(), () => {
         console.log(`Servidor iniciado em http://${ip.address()}:${port}`);

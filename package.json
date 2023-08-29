@@ -10,11 +10,11 @@
   "homepage": "./",
   "scripts": {
     "build": "node scripts/build.js && electron-builder",
-    "build:renderer": "tsc && vite build --config electron.vite.config.ts ",
-    "build:vite:backend": "tsc && vite build --config backend.vite.config.ts",
-    "preview:electron": "node scripts/build && electron .",
+    "build:renderer": "vite build --config electron.vite.config.ts ",
+    "build:vite:backend": "vite build --config backend.vite.config.ts",
     "transpile:electron": "tsc --project tsconfig.electron.json",
-    "dev": "cross-env NODE_ENV=development node scripts/dev.js",
+    "preview:electron": "node scripts/build && electron .",
+    "dev": "cross-env NODE_ENV=development concurrently \"node scripts/dev.js\"  \"npm run watch\"",
     "dev:vite": "vite --config backend.vite.config.ts",
     "watch": "watch 'vite build --config backend.vite.config.ts' ./src/renderer"
   },
@@ -32,6 +32,7 @@
     "@typescript-eslint/parser": "^6.1.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "axios": "^1.5.0",
+    "concurrently": "^8.2.1",
     "cross-env": "^7.0.3",
     "electron": "^25.3.0",
     "electron-builder": "^24.4.0",

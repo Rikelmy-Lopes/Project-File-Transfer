@@ -7,7 +7,7 @@ export default defineConfig({
   base: '/',
   root: 'src/renderer',
   build: {
-    outDir: '../../out/backend/app',
+    outDir: '../../out/backend/public',
     emptyOutDir: true,
   },
 });

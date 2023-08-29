@@ -1,7 +1,7 @@
 import { IpcMain } from 'electron';
-import app from './app';
+import { Server } from 'http';
 import ip from 'ip';
-import { Server } from 'http'
+import app from './app';
 let server: Server | null = null;
 
 function serverHandler(ipcMain: IpcMain) {

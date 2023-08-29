@@ -7,7 +7,7 @@ import { getUserHomedir, readDirectory } from './utils/directoryHandle';
 const app = express()
 
 app.use(express.static(getUserHomedir()));
-app.use(express.static(join(__dirname, './app')));
+app.use(express.static(join(__dirname, 'public')));
 app.use(express.json())
 
 
@@ -24,8 +24,8 @@ app.get('/files-list/:caminho', async (req, res) => {
       .map(entry => ({...entry, name: `${caminho}/${entry.name}`}));
     
     res.status(200).send(entriesList);
-  } catch (error: unknown) {
-    res.status(400).send(error instanceof Error ? error.message : 'Error');
+  } catch (error) {
+    res.status(400).send((error as Error).message);
   }
 });
 
@@ -33,17 +33,13 @@ app.get('/files-list', async (_req, res) => {
   try {
     const entriesList = await readDirectory(getUserHomedir());
     res.status(200).send(entriesList);
-  } catch (error: unknown) {
-    res.status(400).send(error instanceof Error ? error.message : 'Error');
+  } catch (error) {
+    res.status(400).send((error as Error).message);
   }
 });
 
-app.get('/:caminho', (_req, res) => {
-  res.sendFile(join(__dirname, './app/index.html'));
-});
-
-app.get('/', (_req, res) => {
-  res.sendFile(join(__dirname, './app/index.html'));
+app.get('/*', (_req, res) => {
+  res.sendFile(join(__dirname, 'public/index.html'));
 });
 
 app.get('/download/:caminho', (req, res) => {

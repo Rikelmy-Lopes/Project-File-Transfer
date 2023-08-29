@@ -1,6 +1,6 @@
-import  { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import { join } from 'path';
-import serverHandler from '../backend/server'
+import serverHandler from '../backend/server';
 
 if (!app.requestSingleInstanceLock()) {
   app.quit()

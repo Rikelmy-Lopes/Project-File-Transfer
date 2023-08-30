@@ -6,6 +6,7 @@
       "skipLibCheck": true,
       "outDir": "out",
       "esModuleInterop": true,
+      "moduleResolution": "Node16",
   
       /* Linting */
       "strict": true,

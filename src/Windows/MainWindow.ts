@@ -1,22 +1,23 @@
 import { App, app, BrowserWindow, ipcMain } from 'electron';
 import { join } from 'path';
-import expressApp from '../server/app';
-import { ServerHandler } from '../server/server';
-import { state } from '../state/state';
-import { IObserver, ISubject, StateSubject } from '../state/StateSubject';
+import expressApp from '../Server/app';
+import { ServerHandler } from '../Server/server';
+import { state } from '../State/state';
+import { IObserver, ISubject, StateSubject } from '../State/StateSubject';
 
 const isDev = process.env.NODE_ENV === 'development';
 
 class MainWindow {
-  private window: BrowserWindow | null;
   private app: App;
   private serverHandler: IObserver;
   private subject: ISubject;
+  private window: BrowserWindow | null;
 
   constructor(app: App, serverHandler: IObserver, subject: ISubject) {
     this.app = app;
     this.serverHandler = serverHandler;
     this.subject = subject;
+    this.window = null;
   }
 
   main() {
@@ -44,7 +45,7 @@ class MainWindow {
       width: 1024,
       height: 768,
       webPreferences: {
-        preload: join(__dirname, '../preload/preload.js'),
+        preload: join(__dirname, '../Preload/preload.js'),
         nodeIntegration: true,
       }
     });
@@ -53,7 +54,8 @@ class MainWindow {
       this.window.webContents.openDevTools();
     } else {
       this.window.removeMenu();
-      this.window.loadFile(join(__dirname, '../renderer/index.html'));
+      this.window.loadFile(join(__dirname, '../Renderer/index.html'));
+      this.window.webContents.openDevTools();
     }
   }
 

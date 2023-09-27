@@ -1,4 +1,4 @@
-out
+build
 scripts
 electron.vite.config.ts
 app.vite.config.ts

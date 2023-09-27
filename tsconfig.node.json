@@ -6,5 +6,8 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["electron.vite.config.ts", "backend.vite.config.ts"],
+  "include": [
+    "electron.vite.config.ts",
+    "server.vite.config.ts"
+  ],
 }

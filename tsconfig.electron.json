@@ -4,7 +4,7 @@
     "useDefineForClassFields": true,
     "module": "CommonJS",
     "skipLibCheck": true,
-    "outDir": "out",
+    "outDir": "build",
     "esModuleInterop": true,
     "moduleResolution": "Node16",
     /* Linting */
@@ -14,11 +14,12 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src/main/*",
-    "src/preload/*",
-    "src/backend/*"
+    "src/Windows/*",
+    "src/Preload/*",
+    "src/Server/*",
+    "src/State/*"
   ],
   "exclude": [
-    "src/renderer"
+    "src/Renderer"
   ]
 }

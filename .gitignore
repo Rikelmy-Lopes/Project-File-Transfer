@@ -14,7 +14,7 @@ dist-ssr
 app-electron
 app-backend
 release
-out
+build
 
 # Editor directories and files
 .vscode/*

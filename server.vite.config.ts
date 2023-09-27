@@ -5,9 +5,9 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [react()],
   base: '/',
-  root: 'src/renderer',
+  root: 'src/Renderer',
   build: {
-    outDir: '../../out/backend/public',
+    outDir: '../../build/Server/public',
     emptyOutDir: true,
   },
 });

@@ -2,7 +2,7 @@
   "name": "file-transfer",
   "private": true,
   "version": "0.1.0",
-  "main": "out/main/main.js",
+  "main": "build/Windows/MainWindow.js",
   "author": {
     "name": "Rikelmy Lopes",
     "email": "rikelmylopes899@gmail.com"
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "node scripts/build.js && electron-builder",
     "build:renderer": "vite build --config electron.vite.config.ts ",
-    "build:vite:backend": "vite build --config backend.vite.config.ts",
+    "build:server-assets": "vite build --config server.vite.config.ts",
     "build:electron": "tsc --project tsconfig.electron.json",
     "preview:electron": "node scripts/build && electron .",
     "dev": "cross-env NODE_ENV=development node scripts/dev.js",

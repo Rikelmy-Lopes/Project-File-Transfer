@@ -1,6 +1,5 @@
 appId: your.app.id
 asar: true
-icon: assets/icons/icon.png
 directories:
   output: release/${version}
 
@@ -8,6 +7,7 @@ files:
   - build
 
 win:
+  icon: assets/icons/icon.ico
   target:
     - target: nsis
       arch:
@@ -15,6 +15,7 @@ win:
   artifactName: "${productName}_${version}.${ext}"
 
 linux:
+  icon: assests/icons/icon.png
   target:
     # - deb
     - AppImage

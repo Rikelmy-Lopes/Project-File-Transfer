@@ -1,5 +1,6 @@
 appId: your.app.id
 asar: true
+icon: assets/icons/icon.png
 directories:
   output: release/${version}
 

@@ -55,7 +55,6 @@ class MainWindow {
     } else {
       this.window.removeMenu();
       this.window.loadFile(join(__dirname, '../Renderer/index.html'));
-      this.window.webContents.openDevTools();
     }
   }
 

@@ -1,5 +1,6 @@
-appId: your.app.id
+appId: file.transfer.wifi
 asar: true
+productName: File Transfer Wifi
 directories:
   output: release/${version}
 
@@ -12,6 +13,7 @@ win:
     - target: nsis
       arch:
         - x64
+        - ia32
   artifactName: "${productName}_${version}.${ext}"
 
 linux:

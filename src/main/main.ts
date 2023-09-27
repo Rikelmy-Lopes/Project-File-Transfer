@@ -1,9 +1,9 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import { join } from 'path';
-import expressApp from '../backend/app';
-import { ServerHandler } from '../backend/server';
-import { state } from '../backend/state/state';
-import { IObserver, ISubject, StateSubject } from '../backend/state/StateSubject';
+import expressApp from '../server/app';
+import { ServerHandler } from '../server/server';
+import { state } from '../server/state/state';
+import { IObserver, ISubject, StateSubject } from '../server/state/StateSubject';
 
 const isDev = process.env.NODE_ENV === 'development';
 

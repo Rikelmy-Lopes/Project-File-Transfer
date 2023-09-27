@@ -12,7 +12,7 @@
     "build": "node scripts/build.js && electron-builder",
     "build:renderer": "vite build --config electron.vite.config.ts ",
     "build:vite:backend": "vite build --config backend.vite.config.ts",
-    "transpile:electron": "tsc --project tsconfig.electron.json",
+    "build:electron": "tsc --project tsconfig.electron.json",
     "preview:electron": "node scripts/build && electron .",
     "dev": "cross-env NODE_ENV=development node scripts/dev.js",
     "dev:vite": "vite --config electron.vite.config.ts"
@@ -23,7 +23,6 @@
     "ip": "^1.1.8"
   },
   "devDependencies": {
-    "@types/electron": "^1.6.10",
     "@types/express": "^4.17.17",
     "@types/ip": "^1.1.0",
     "@types/react": "^18.2.14",
@@ -42,6 +41,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
+    "regenerator-runtime": "^0.14.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.9"
   }

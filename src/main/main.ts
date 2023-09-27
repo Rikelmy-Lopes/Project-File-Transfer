@@ -1,22 +1,38 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import { join } from 'path';
 import expressApp from '../backend/app';
-import { IServerHandler, ServerHandler } from '../backend/server';
+import { ServerHandler } from '../backend/server';
+import { state } from '../backend/state/state';
+import { IObserver, ISubject, StateSubject } from '../backend/state/StateSubject';
 
 const isDev = process.env.NODE_ENV === 'development';
 
 class MainWindow {
-  private app: Electron.App
-  private ipcMain: Electron.IpcMain
   private window: Electron.BrowserWindow | null;
-  private serverHandler: IServerHandler
+  private serverHandler: IObserver;
+  private subject: ISubject;
 
-  constructor(app: Electron.App, ipcMain: Electron.IpcMain, serverHandler: IServerHandler) {
-    this.app = app;
-    this.ipcMain = ipcMain;
+  constructor(serverHandler: IObserver, subject: ISubject) {
     this.window = null;
     this.serverHandler = serverHandler;
-    this.init();
+    this.subject = subject;
+  }
+
+  main() {
+    try {
+      this.startup();
+    } catch (error) {
+      console.error((error as Error).message);
+      app.exit(1);
+    }
+  }
+
+  private startup() {
+    app.whenReady().then(() => {
+      this.createWindow();
+      this.registerListeners();
+      this.server();
+    });
   }
 
   private createWindow() {
@@ -28,7 +44,7 @@ class MainWindow {
         preload: join(__dirname, '../preload/preload.js'),
         nodeIntegration: true,
       }
-    })
+    });
     if (isDev) {
       this.window.loadURL('http://localhost:5173');
       this.window.webContents.openDevTools();
@@ -38,43 +54,50 @@ class MainWindow {
     }
   }
 
-  private setListeners() {
+  private registerListeners() {
     if (!app.requestSingleInstanceLock()) {
-      app.quit()
-      process.exit(1)
+      app.quit();
+      process.exit(1);
     }
-    this.serverHandler.start(this.ipcMain);
-    this.serverHandler.stop(this.ipcMain);
-    this.app.on('window-all-closed', () => {
+    app.on('window-all-closed', () => {
       this.window = null;
-      if (process.platform !== 'darwin') this.app.quit()
-    })
+      if (process.platform !== 'darwin') app.quit();
+    });
     app.on('second-instance', () => {
       if (this.window) {
         // Focus on the main window if the user tried to open another
-        if (this.window.isMinimized()) this.window.restore()
-        this.window.focus()
+        if (this.window.isMinimized()) this.window.restore();
+        this.window.focus();
       }
-    })
+    });
     app.on('activate', () => {
-      const allWindows = BrowserWindow.getAllWindows()
+      const allWindows = BrowserWindow.getAllWindows();
       if (allWindows.length) {
-        allWindows[0].focus()
+        allWindows[0].focus();
       } else {
-        this.init();
+        this.main();
       }
-    })
-  }
-
-  private init() {
-    this.app.whenReady().then(() => {
-      this.createWindow();
-      this.setListeners();
     });
   }
-  
+
+  private server() {
+    this.subject.subscribe(this.serverHandler);
+    ipcMain.on('start-server', (_, serverPort: number) => {
+      state.isServerOn = true;
+      state.serverPort = serverPort;
+      this.subject.notifyAll(state);
+    });
+    ipcMain.on('stop-server', () => {
+      state.isServerOn = false;
+      this.subject.notifyAll(state);
+    });
+  }
+
 }
 
-const serverHandler = new ServerHandler(expressApp)
+const serverHandler = new ServerHandler(expressApp);
+const stateSubject = new StateSubject();
 
-new MainWindow(app, ipcMain, serverHandler);
+const main = new MainWindow(serverHandler, stateSubject);
+
+main.main();

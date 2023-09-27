@@ -1,8 +1,8 @@
 import { Application } from 'express';
 import { Server } from 'http';
 import ip from 'ip';
-import { IObserver } from './state/StateSubject';
-import { IState } from './state/state';
+import { IObserver } from '../state/StateSubject';
+import { IState } from '../state/state';
 
 
 export class ServerHandler implements IObserver {

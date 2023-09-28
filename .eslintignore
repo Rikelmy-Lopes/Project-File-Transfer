@@ -2,6 +2,4 @@ build
 scripts
 electron.vite.config.ts
 app.vite.config.ts
-# src/main
-src/preload
-# src/backend
+src/Preload

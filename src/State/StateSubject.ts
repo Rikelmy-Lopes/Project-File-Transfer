@@ -1,7 +1,7 @@
 import { IState } from './state';
 
 export interface IObserver {
-    update(state: IState): void
+  update(state: IState): void
 }
 
 

@@ -17,7 +17,7 @@ win:
   artifactName: "${productName}_${version}.${ext}"
 
 linux:
-  icon: assests/icons/icon.png
+  icon: assets/icons/icon.png
   target:
     # - deb
     - AppImage

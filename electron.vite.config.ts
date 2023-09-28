@@ -8,6 +8,7 @@ export default defineConfig({
   root: 'src/Renderer',
   build: {
     outDir: '../../build/Renderer',
+    emptyOutDir: true,
   },
   server: {
     host: 'localhost',

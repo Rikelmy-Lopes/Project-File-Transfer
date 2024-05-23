@@ -87,8 +87,8 @@ This project is licensed under the MIT License
 <p> Feito com ❤️ por Rikelmy Lopes! Entre em contato! </p>
 
 <div>
-  <a href="https://www.linkedin.com/in/rikelmy-lopes/" target="_blank"><img height='30em' src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
-  <a href="https://rikelmy-lopes.github.io/" target="_blank"><img height='30em' src="https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=#FF7139" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/rikelmy-lopes/" target="_blank"><img-- height='30em' src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+  <a href="https://rikelmy-lopes.github.io/" target="_blank"><img-- height='30em' src="https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=#FF7139" target="_blank"></a>
   <a href = "mailto:rikelmylopes899@gmail.com"><img height='30em' src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
   <a href="https://www.instagram.com/rikelmy_lopes18/" target="_blank"><img height='30em' src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
 
